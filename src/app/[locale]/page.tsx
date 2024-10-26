@@ -1,11 +1,23 @@
+'use client';
+
+import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
+import clsx from 'clsx';
+import { useRouter } from '@/i18n/routing';
 
 export default function Home() {
+  const t = useTranslations('HomePage');
+  const locale = useLocale();
+  const router = useRouter();
+
+  console.log(locale);
+
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
         <Image className="dark:invert" src="/next.svg" alt="Next.js logo" width={180} height={38} priority />
         <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
+          <li className="mb-2">{t('title')}</li>
           <li className="mb-2">
             Get started by editing{' '}
             <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
@@ -15,7 +27,24 @@ export default function Home() {
           </li>
           <li>Save and see your changes instantly.</li>
         </ol>
-
+        <div className="flex flex-row gap-4 items-center">
+          <button
+            className={clsx('cursor-pointer', locale === 'en' && 'text-green-600')}
+            onClick={() => {
+              router.replace('/', { locale: 'en' });
+            }}
+          >
+            en
+          </button>
+          <button
+            className={clsx('cursor-pointer', locale === 'zh' && 'text-green-600')}
+            onClick={() => {
+              router.replace('/', { locale: 'zh' });
+            }}
+          >
+            zh
+          </button>
+        </div>
         <div className="flex gap-4 items-center flex-col sm:flex-row">
           <a
             className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
@@ -32,7 +61,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Read our docs
+            {t('about')}
           </a>
         </div>
       </main>
