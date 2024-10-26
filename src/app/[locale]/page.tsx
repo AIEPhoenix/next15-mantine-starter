@@ -4,11 +4,30 @@ import { useLocale, useTranslations } from 'next-intl';
 import Image from 'next/image';
 import clsx from 'clsx';
 import { useRouter } from '@/i18n/routing';
+import { useTheme } from '@/managers/ThemeManager/context';
+import { Button, ButtonProps, createPolymorphicComponent } from '@mantine/core';
+import styled from '@emotion/styled';
+
+const ABox = styled.a`
+  color: var(--mantine-color-primary-6);
+  border: 1px solid var(--mantine-color-primary-6);
+`;
+
+const _StyledButton = styled(Button)`
+  color: black;
+
+  [data-mantine-color-scheme='dark'] & {
+    color: white;
+  }
+`;
+
+const StyledButton = createPolymorphicComponent<'button', ButtonProps>(_StyledButton);
 
 export default function Home() {
   const t = useTranslations('HomePage');
   const locale = useLocale();
   const router = useRouter();
+  const { colorScheme, setColorScheme, setPrimaryColor } = useTheme();
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
@@ -43,16 +62,60 @@ export default function Home() {
             zh
           </button>
         </div>
+        <div className="flex flex-row gap-4 items-center">
+          <Button
+            variant={colorScheme === 'auto' ? 'filled' : 'outline'}
+            onClick={() => {
+              setColorScheme('auto');
+            }}
+          >
+            auto
+          </Button>
+          <Button
+            variant={colorScheme === 'light' ? 'filled' : 'outline'}
+            onClick={() => {
+              setColorScheme('light');
+            }}
+          >
+            light
+          </Button>
+          <Button
+            variant={colorScheme === 'dark' ? 'filled' : 'outline'}
+            onClick={() => {
+              setColorScheme('dark');
+            }}
+          >
+            dark
+          </Button>
+        </div>
+        <div className="flex flex-row gap-4 items-center">
+          <StyledButton
+            variant="outline"
+            onClick={() => {
+              setPrimaryColor('teal');
+            }}
+          >
+            Primary Teal
+          </StyledButton>
+          <StyledButton
+            variant="outline"
+            onClick={() => {
+              setPrimaryColor('violet');
+            }}
+          >
+            Primary Violet
+          </StyledButton>
+        </div>
         <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
+          <ABox
+            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
             href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
             target="_blank"
             rel="noopener noreferrer"
           >
-            <Image className="dark:invert" src="/vercel.svg" alt="Vercel logomark" width={20} height={20} />
+            <Image className="invert dark:invert-0" src="/vercel.svg" alt="Vercel logomark" width={20} height={20} />
             Deploy now
-          </a>
+          </ABox>
           <a
             className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
             href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"

@@ -9,7 +9,15 @@ const withBundleAnalyzer = bundleAnalyzer({
 });
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  compiler: {
+    emotion: true,
+  },
+  sassOptions: {
+    includePaths: ['./src'],
+  },
+  experimental: {
+    optimizePackageImports: ['@mantine/core', '@mantine/hooks'],
+  },
 };
 
 export default withBundleAnalyzer(withNextIntl(nextConfig));
