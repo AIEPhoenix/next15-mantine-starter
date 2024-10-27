@@ -12,7 +12,13 @@ const compat = new FlatCompat({
 });
 
 const configs = [
-  ...compat.extends('next/core-web-vitals', 'next/typescript', 'plugin:storybook/recommended', 'prettier'),
+  ...compat.extends(
+    'next/core-web-vitals',
+    'next/typescript',
+    'plugin:next-unplugin-icons/recommended',
+    'plugin:storybook/recommended',
+    'prettier'
+  ),
   {
     rules: {
       // Consistently import navigation APIs from `@/i18n/routing`

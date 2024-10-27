@@ -7,6 +7,10 @@ import { useRouter } from '@/i18n/routing';
 import { useTheme } from '@/managers/ThemeManager/context';
 import { Button, ButtonProps, createPolymorphicComponent } from '@mantine/core';
 import styled from '@emotion/styled';
+import LineMdLightDarkLoop from '~icons/line-md/light-dark-loop.jsx';
+import LineMdMoonAltLoop from '~icons/line-md/moon-alt-loop.jsx';
+import LineMdSunRisingLoop from '~icons/line-md/sun-rising-loop.jsx';
+import { GrLanguage } from 'react-icons/gr';
 
 const ABox = styled.a`
   color: var(--mantine-color-primary-6);
@@ -46,19 +50,27 @@ export default function Home() {
         </ol>
         <div className="flex flex-row gap-4 items-center">
           <button
-            className={clsx('cursor-pointer', locale === 'en' && 'text-green-600')}
+            className={clsx(
+              'cursor-pointer flex flex-row items-center gap-[10px]',
+              locale === 'en' && 'text-green-600'
+            )}
             onClick={() => {
               router.replace('/', { locale: 'en' });
             }}
           >
+            <GrLanguage />
             en
           </button>
           <button
-            className={clsx('cursor-pointer', locale === 'zh' && 'text-green-600')}
+            className={clsx(
+              'cursor-pointer flex flex-row items-center gap-[10px]',
+              locale === 'zh' && 'text-green-600'
+            )}
             onClick={() => {
               router.replace('/', { locale: 'zh' });
             }}
           >
+            <GrLanguage />
             zh
           </button>
         </div>
@@ -69,7 +81,7 @@ export default function Home() {
               setColorScheme('auto');
             }}
           >
-            auto
+            <LineMdLightDarkLoop />
           </Button>
           <Button
             variant={colorScheme === 'light' ? 'filled' : 'outline'}
@@ -77,7 +89,7 @@ export default function Home() {
               setColorScheme('light');
             }}
           >
-            light
+            <LineMdSunRisingLoop />
           </Button>
           <Button
             variant={colorScheme === 'dark' ? 'filled' : 'outline'}
@@ -85,7 +97,7 @@ export default function Home() {
               setColorScheme('dark');
             }}
           >
-            dark
+            <LineMdMoonAltLoop />
           </Button>
         </div>
         <div className="flex flex-row gap-4 items-center">

@@ -1,6 +1,7 @@
 import type { NextConfig } from 'next';
 import createNextIntlPlugin from 'next-intl/plugin';
 import bundleAnalyzer from '@next/bundle-analyzer';
+import Icons from 'unplugin-icons/webpack';
 
 const withNextIntl = createNextIntlPlugin();
 
@@ -16,7 +17,19 @@ const nextConfig: NextConfig = {
     includePaths: ['./src'],
   },
   experimental: {
-    optimizePackageImports: ['@mantine/core', '@mantine/hooks'],
+    optimizePackageImports: ['@mantine/core', '@mantine/hooks', '@mantine/modals', '@mantine/notifications'],
+  },
+  webpack(config) {
+    // Add the unplugin-icons plugin to the webpack config
+    config.plugins.push(
+      Icons({
+        compiler: 'jsx',
+        jsx: 'react',
+        autoInstall: true,
+      })
+    );
+
+    return config;
   },
 };
 
