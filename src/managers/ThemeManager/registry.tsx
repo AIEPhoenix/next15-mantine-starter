@@ -1,8 +1,6 @@
 'use client';
 
 import { PropsWithChildren, useEffect, useMemo, useState } from 'react';
-import dayjs from 'dayjs';
-import Cookies from 'js-cookie';
 import { generateColorsMap } from '@mantine/colors-generator';
 import {
   DEFAULT_THEME,
@@ -18,6 +16,8 @@ import {
 } from '@mantine/core';
 import { ModalsProvider } from '@mantine/modals';
 import { Notifications } from '@mantine/notifications';
+import dayjs from 'dayjs';
+import Cookies from 'js-cookie';
 import StyleRegistry from './StyleRegistry';
 import ThemeProvider from './context';
 import {

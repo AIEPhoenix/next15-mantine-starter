@@ -1,11 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import clsx from 'clsx';
 import { useLocale, useTranslations } from 'next-intl';
 import { useRouter } from '@/i18n/routing';
 import { Button, ButtonProps, createPolymorphicComponent } from '@mantine/core';
 import styled from '@emotion/styled';
+import clsx from 'clsx';
 import { useTheme } from '@/managers/ThemeManager/context';
 import ColorSchemeSwitcher from '@/components/ColorSchemeSwitcher';
 import { GrLanguage } from 'react-icons/gr';

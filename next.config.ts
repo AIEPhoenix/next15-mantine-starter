@@ -1,6 +1,6 @@
 import type { NextConfig } from 'next';
-import Icons from 'unplugin-icons/webpack';
 import createNextIntlPlugin from 'next-intl/plugin';
+import Icons from 'unplugin-icons/webpack';
 import bundleAnalyzer from '@next/bundle-analyzer';
 
 const withNextIntl = createNextIntlPlugin();

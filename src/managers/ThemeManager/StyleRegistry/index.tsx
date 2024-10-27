@@ -1,8 +1,8 @@
 'use client';
 
 import { PropsWithChildren } from 'react';
-import { prefixer } from 'stylis';
 import { PROJECT_STORE_PREFIX } from '@/project.config';
+import { prefixer } from 'stylis';
 import EmotionCacheProvider from './EmotionCache';
 
 const StyleRegistry = ({ children }: PropsWithChildren) => {

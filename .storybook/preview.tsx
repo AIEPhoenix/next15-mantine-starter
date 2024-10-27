@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { DARK_MODE_EVENT_NAME } from 'storybook-dark-mode';
 import '../src/styles/global.scss';
+import { DARK_MODE_EVENT_NAME } from 'storybook-dark-mode';
 import { addons } from '@storybook/preview-api';
 import type { Preview } from '@storybook/react';
 import ManagersRegistry from '../src/managers/ManagersRegistry';
