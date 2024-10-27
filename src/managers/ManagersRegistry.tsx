@@ -6,7 +6,7 @@ export interface ManagersRegistryProps extends PropsWithChildren {
   persistentState: Awaited<ReturnType<typeof getManagersPersistentStateFromCookies>>;
 }
 
-const ManagersRegistry = async ({ persistentState, children }: ManagersRegistryProps) => {
+const ManagersRegistry = ({ persistentState, children }: ManagersRegistryProps) => {
   return (
     <ThemeManagerRegistry
       colorScheme={persistentState.theme.colorScheme}

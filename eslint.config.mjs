@@ -19,8 +19,10 @@ const configs = [
     'plugin:storybook/recommended',
     'prettier'
   ),
+  ...compat.plugins('react-compiler'),
   {
     rules: {
+      'react-compiler/react-compiler': 'error',
       // Consistently import navigation APIs from `@/i18n/routing`
       'no-restricted-imports': [
         'error',
