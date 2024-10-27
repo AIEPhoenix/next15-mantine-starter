@@ -7,10 +7,8 @@ import { useRouter } from '@/i18n/routing';
 import { useTheme } from '@/managers/ThemeManager/context';
 import { Button, ButtonProps, createPolymorphicComponent } from '@mantine/core';
 import styled from '@emotion/styled';
-import LineMdLightDarkLoop from '~icons/line-md/light-dark-loop.jsx';
-import LineMdMoonAltLoop from '~icons/line-md/moon-alt-loop.jsx';
-import LineMdSunRisingLoop from '~icons/line-md/sun-rising-loop.jsx';
 import { GrLanguage } from 'react-icons/gr';
+import ColorSchemeSwitcher from '@/components/ColorSchemeSwitcher';
 
 const ABox = styled.a`
   color: var(--mantine-color-primary-6);
@@ -31,7 +29,7 @@ export default function Home() {
   const t = useTranslations('HomePage');
   const locale = useLocale();
   const router = useRouter();
-  const { colorScheme, setColorScheme, setPrimaryColor } = useTheme();
+  const { setPrimaryColor } = useTheme();
 
   return (
     <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
@@ -74,32 +72,7 @@ export default function Home() {
             zh
           </button>
         </div>
-        <div className="flex flex-row gap-4 items-center">
-          <Button
-            variant={colorScheme === 'auto' ? 'filled' : 'outline'}
-            onClick={() => {
-              setColorScheme('auto');
-            }}
-          >
-            <LineMdLightDarkLoop />
-          </Button>
-          <Button
-            variant={colorScheme === 'light' ? 'filled' : 'outline'}
-            onClick={() => {
-              setColorScheme('light');
-            }}
-          >
-            <LineMdSunRisingLoop />
-          </Button>
-          <Button
-            variant={colorScheme === 'dark' ? 'filled' : 'outline'}
-            onClick={() => {
-              setColorScheme('dark');
-            }}
-          >
-            <LineMdMoonAltLoop />
-          </Button>
-        </div>
+        <ColorSchemeSwitcher />
         <div className="flex flex-row gap-4 items-center">
           <StyledButton
             variant="outline"
