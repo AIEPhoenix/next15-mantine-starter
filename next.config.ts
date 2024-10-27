@@ -14,7 +14,7 @@ const nextConfig: NextConfig = {
     emotion: true,
   },
   sassOptions: {
-    includePaths: ['./src'],
+    includePaths: ['src', 'node_modules'],
   },
   experimental: {
     optimizePackageImports: ['@mantine/core', '@mantine/hooks', '@mantine/modals', '@mantine/notifications'],
@@ -31,6 +31,7 @@ const nextConfig: NextConfig = {
 
     return config;
   },
+  output: process.env.BUILD_FOR_DOCKER === 'true' ? 'standalone' : undefined,
 };
 
 export default withBundleAnalyzer(withNextIntl(nextConfig));

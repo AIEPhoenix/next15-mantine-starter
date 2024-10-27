@@ -7,8 +7,9 @@ Use a CSS file and include the postcss-import plugin
 Use an SCSS file
 Another approach is to use a script to insert styles at the very top: https://github.com/vercel/next.js/issues/16630#issuecomment-1644918877
 In this case, we'll use the SCSS approach.
+As of Dart Sass 1.80.0, the @import rule is deprecated, so we'll use the @use rule instead. ps: @import layers.css sass will remove @layer's [end ;] on prod build!
 */
-@import './layers.css';
-@import './tailwind.css';
-@import '@mantine/core/styles.layer.css';
-@import '@mantine/notifications/styles.layer.css';
+@use 'layers.css';
+@use 'tailwind.css';
+@use '@mantine/core/styles.layer.css' as mantineCore;
+@use '@mantine/notifications/styles.layer.css' as mantineNotifications;

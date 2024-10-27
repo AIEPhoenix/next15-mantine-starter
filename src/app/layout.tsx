@@ -28,8 +28,9 @@ export default async function RootLayout({
           localStorageKey={THEME_COLOR_SCHEMA_STORE_NAME}
         />
         <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, user-scalable=no" />
+        <meta name="theme-color" />
       </head>
-      <body className="antialiased" suppressHydrationWarning={false}>
+      <body className="antialiased">
         <ManagersRegistry persistentState={managersPersistentState}>{children}</ManagersRegistry>
       </body>
     </html>

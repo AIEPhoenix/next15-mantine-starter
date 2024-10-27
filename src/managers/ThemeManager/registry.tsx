@@ -1,6 +1,6 @@
 'use client';
 
-import { PropsWithChildren, useMemo, useState } from 'react';
+import { PropsWithChildren, useEffect, useMemo, useState } from 'react';
 import { generateColorsMap } from '@mantine/colors-generator';
 import {
   DEFAULT_THEME,
@@ -48,6 +48,21 @@ function ThemeManagerStateProvider({ children, ...props }: ThemeManagerStateProv
 
   const [colorScheme, setColorScheme] = useState(props.colorScheme);
   const [direction, setDirection] = useState(props.direction);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const divElement = document.createElement('div');
+      divElement.style.display = 'none';
+      divElement.style.color = 'var(--mantine-color-body)';
+      document.body.appendChild(divElement);
+      const bodyColor = window.getComputedStyle(divElement).color;
+      divElement.remove();
+      const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+      if (themeColorMeta) {
+        themeColorMeta.setAttribute('content', bodyColor);
+      }
+    }
+  }, [activeColorScheme]);
 
   return (
     <ThemeProvider
