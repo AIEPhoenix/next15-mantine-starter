@@ -8,5 +8,33 @@
   "jsxSingleQuote": false,
   "bracketSpacing": true,
   "jsxBracketSameLine": false,
-  "arrowParens": "always"
+  "arrowParens": "always",
+  "plugins": [
+    "@trivago/prettier-plugin-sort-imports"
+  ],
+  "importOrder": [
+    "^react$",
+    "^next$",
+    "^next/(.*)$",
+    "<THIRD_PARTY_MODULES>",
+    "^@/project.config$",
+    "^next-intl$",
+    "^next-intl/(.*)$",
+    "^@/i18n/(.*)$",
+    "^@mantine(.*)$",
+    "^@emotion(.*)$",
+    ".(css|scss)$",
+    "^@/types/(.*)$",
+    "^@/data/(.*)$",
+    "^@/managers/(.*)$",
+    "^@/services/(.*)$",
+    "^@/utils/(.*)$",
+    "^@/components/(.*)$",
+    "^react-icons/(.*)$",
+    "^~icons/(.*)$",
+    "^@/assets/(.*)$",
+    "^[@/]",
+    "^[../]",
+    "^[./]"
+  ]
 }

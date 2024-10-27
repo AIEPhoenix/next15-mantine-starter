@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import type { Preview } from '@storybook/react';
-import { addons } from '@storybook/preview-api';
 import { DARK_MODE_EVENT_NAME } from 'storybook-dark-mode';
+import '../src/styles/global.scss';
+import { addons } from '@storybook/preview-api';
+import type { Preview } from '@storybook/react';
 import ManagersRegistry from '../src/managers/ManagersRegistry';
 import { useTheme } from '../src/managers/ThemeManager/context';
-import '../src/styles/global.scss';
 
 const channel = addons.getChannel();
 

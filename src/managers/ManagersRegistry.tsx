@@ -1,6 +1,6 @@
 import { PropsWithChildren } from 'react';
-import ThemeManagerRegistry from './ThemeManager/registry';
 import { getManagersPersistentStateFromCookies } from '@/managers/utils';
+import ThemeManagerRegistry from './ThemeManager/registry';
 
 export interface ManagersRegistryProps extends PropsWithChildren {
   persistentState: Awaited<ReturnType<typeof getManagersPersistentStateFromCookies>>;

@@ -1,6 +1,6 @@
 import React from 'react';
-import { getLocale, getMessages, setRequestLocale } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
+import { getLocale, getMessages, setRequestLocale } from 'next-intl/server';
 
 export default async function LocaleLayout({
   children,

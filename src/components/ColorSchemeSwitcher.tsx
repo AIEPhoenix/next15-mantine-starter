@@ -1,7 +1,7 @@
 'use client';
 
-import { useTheme } from '@/managers/ThemeManager/context';
 import { Button } from '@mantine/core';
+import { useTheme } from '@/managers/ThemeManager/context';
 import LineMdLightDarkLoop from '~icons/line-md/light-dark-loop.jsx';
 import LineMdMoonAltLoop from '~icons/line-md/moon-alt-loop.jsx';
 import LineMdSunRisingLoop from '~icons/line-md/sun-rising-loop.jsx';

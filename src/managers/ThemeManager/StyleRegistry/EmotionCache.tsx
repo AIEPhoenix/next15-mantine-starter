@@ -4,10 +4,10 @@
  * From https://github.com/mui/material-ui/blob/187df64844199d77ad5afc77182d371ef1e36ebd/examples/joy-ui-nextjs-ts/src/components/ThemeRegistry/EmotionCache.tsx#L8
  * */
 import * as React from 'react';
-import createCache from '@emotion/cache';
 import { useServerInsertedHTML } from 'next/navigation';
-import { CacheProvider as DefaultCacheProvider } from '@emotion/react';
+import createCache from '@emotion/cache';
 import type { EmotionCache, Options as OptionsOfCreateCache } from '@emotion/cache';
+import { CacheProvider as DefaultCacheProvider } from '@emotion/react';
 
 export type NextAppDirEmotionCacheProviderProps = {
   /** This is the options passed to createCache() from 'import createCache from "@emotion/cache"' */

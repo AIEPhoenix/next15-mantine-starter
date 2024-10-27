@@ -1,11 +1,11 @@
 import React from 'react';
 import type { Metadata } from 'next';
-import '@/styles/global.scss';
 import { getLocale } from 'next-intl/server';
 import { ColorSchemeScript } from '@mantine/core';
-import { getManagersPersistentStateFromCookies } from '@/managers/utils';
+import '@/styles/global.scss';
 import ManagersRegistry from '@/managers/ManagersRegistry';
 import { THEME_COLOR_SCHEMA_STORE_NAME } from '@/managers/ThemeManager/def';
+import { getManagersPersistentStateFromCookies } from '@/managers/utils';
 
 export const metadata: Metadata = {
   title: 'Create Next App',
