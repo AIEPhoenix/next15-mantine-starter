@@ -15,6 +15,8 @@ const nextConfig: NextConfig = {
   },
   sassOptions: {
     includePaths: ['src', 'node_modules'],
+    additionalData: `@use "styles/_mantine.scss" as *;`,
+    silenceDeprecations: ['legacy-js-api'],
   },
   experimental: {
     optimizePackageImports: ['@mantine/core', '@mantine/hooks', '@mantine/modals', '@mantine/notifications'],
